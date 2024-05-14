@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const DB_URL = "mongodb://localhost:27017/Pindie"
 
-async function connectToDAatabbase() {
+async function connectToDatabase() {
     try {
         await mongoose.connect(DB_URL);
         console.log("Успешно подключились к MongoDB");
@@ -13,4 +13,4 @@ async function connectToDAatabbase() {
     }
 };
 
-module.exports = connectToDAatabbase;
+module.exports = connectToDatabase;
