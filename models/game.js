@@ -33,19 +33,19 @@ const gameSchema = new mongoose.Schema({
     }],
 });
 
-gameSchema.statics.findgameByCategory = function(category) {
-    return this.find({})
-    .populate({
+gameSchema.statics.findGameByCategory = function(category) {
+    return this.find({}) 
+      .populate({
         path: "categories",
-        match: {name: category}
-    })
-    .populate({
+        match: { name: category } 
+      })
+      .populate({
         path: "users",
         select: "-password"
-    })
-    .then(games => {
-        return games.filter(game => game.categories.length >0);
-    });
-};
+      })
+      .then(games => { 
+        return games.filter(game => game.categories.length > 0);
+      });
+  };
 
 module.exports = mongoose.model('game', gameSchema);
